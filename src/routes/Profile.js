@@ -1,4 +1,17 @@
+import { authService } from "fBase";
 import React from "react";
+import { useHistory } from "react-router-dom";
 
-const Profile = () => <sapn>Profile</sapn>
-export default Profile;
+export default () => {
+    const history = useHistory();
+    const onLogOutClick = () => {
+        authService.signOut();
+        history.push("/");
+    };
+    
+    return (
+        <>
+            <button onClick={onLogOutClick}>Log Out</button>
+        </>
+    )
+}
