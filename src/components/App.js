@@ -9,6 +9,8 @@ function App() {
     authService.onAuthStateChanged((user) => {
       if (user) {
         setUserObj({ displayName: user.displayName, uid: user.uid, updateProfile: (args) => user.updateProfile(args) });
+      } else {
+        setUserObj(null);
       }
       setInit(true);
     });
